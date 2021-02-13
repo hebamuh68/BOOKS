@@ -1,0 +1,64 @@
+1- """A map is a container for storing a collection of data records in which each record
+is associated with a unique key. The key components must be comparable."""
+
+
+class Map_ADT:
+    def __init__(self):
+        self.MAP = {}
+
+    def Len(self):
+        print("The number of keys: {}\nThe number of values: {}"
+              .format(len(self.MAP.keys()), len(self.MAP.values())))
+
+    def Contains(self):
+        self.item = input("Please enter the key you are searching for: ")
+
+        if self.item in self.MAP.keys():
+            print(True)
+        else:
+            print(False)
+
+    def Add(self):
+        self.Key = input("Enter the key: ")
+        self.value = input("Enter the value: ")
+
+        if self.Key in self.MAP.keys():
+            print("The key is already exists and has been replaced")
+        else:
+            print("The key doesn't exist")
+
+        self.MAP[self.Key] = self.value
+
+    def remove(self):
+        self.Item_to_remove = int(input("Enter the key: "))
+        assert self.Item_to_remove in self.MAP.keys(), "The key isn't exist"
+        del self.MAP[self.Item_to_remove]
+        return self.MAP
+
+    def ValueOf(self):
+        self.Item_to_display = int(input("Enter the key: "))
+        assert self.Item_to_display in self.MAP.keys(), "The key isn't exist"
+        print(self.MAP[self.Item_to_display])
+
+    def iterator(self):
+        for i in self.MAP.keys():
+            print(self.MAP[i])
+_______________________________________________________
+2- """A multi-dimensional array consists of a collection of elements organized into mul-
+tiple dimensions. Individual elements are referenced by specifying an n-tuple or
+a subscript of multiple components, (i1, i2, . . . in), one for each dimension of the
+array. All indices of the n-tuple start at zero."""
+
+
+https://www.educba.com/multidimensional-array-in-python/?source=leftnav
+_______________________________________________________
+Application: Sales Reports
+LazyMart, Inc. is a small regional chain department store with locations in several
+different cities and states. The company maintains a collection of sales records for
+the various items sold and would like to generate several different types of reports
+from this data. One such report, for example, is the yearly sales by store, as
+illustrated in Figure 3.10 on the next page, while others could include total sales
+across all stores for a specific month or a specific item.
+
+
+
