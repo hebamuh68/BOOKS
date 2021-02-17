@@ -1,0 +1,34 @@
+First open FastQc:
+
+// while downloading don't take it copy, or remove spaces in the command using notebad to edit it
+before run on the terminal
+
+1- cd //the location of FastQC
+2- $ chmod 755 fastqc
+3-  $ ./fastqc
+___________________________________________________________
+
+Second Fastx-toolkit & FASTQ Processing Utilities:
+
+1- $ wget http://hannonlab.cshl.edu/fastx_tool-
+kit/fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2
+2- $ tar –xjf fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2
+3- $ fastq_quality_filter -i bad_seq.fastq -q 25 -p 80 -o bad_seq.fastq.filtered –Q33
+
+// replace this (fastq_quality_filter) with the complete path of, Like this (/home/username/.../bin/fastq_quality_filter)
+// replace this ( bad_seq.fastq) with the complete path of, Like this (/home/username/.../bin/bad_seq.fastq)
+
+
+4- fastq_quality_trimmer -i bad_seq.fastq.filtered -t 25 -o bad_seq.fastq.trimmed –Q33
+//replace like the above step
+
+5- open the last modification file using FastQC
+____________________________________________________________
+USING FASTQ PROCESS UTILITIES3:
+
+$wget --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/ea-utils/ea-utils.1.1.2-537.tar.gz
+$ tar –xzvf ea-utils.1.1.2-537.tar.gz
+$ cd ea-utils.1.1.2-537
+$ make
+
+// don't forget to using the complete path.
