@@ -34,12 +34,14 @@ column indices (r, c), both of which start at 0."""
 
 from numpy import *
 
+
 class Array_2D:
 
-    def __init__(self):
-        self.rows = int(input("PLease enter ur rows number: "))
-        self.cols = int(input("PLease enter ur cols number: "))
+    def Array(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
         self.Array = array([["None"] * self.cols] * self.rows)
+        return self.Array
 
     def numRows(self):
         return self.rows
@@ -47,13 +49,11 @@ class Array_2D:
     def numCols(self):
         return self.cols
 
-    def GetItem(self):
-        self.x, self.y = map(int, input("please enter the position of your value (x,y): ").split())
-        return self.Array[self.x][self.y]
+    def GetItem(self, i, j):
+        return self.Array[i][j]
 
-    def SetItem(self):
-        self.x, self.y, self.value = map(int, input("please enter the position of your value (x,y): ").split())
-        self.Array[self.x][self.y] = self.value
+    def SetItem(self, i, j, value):
+        self.Array[i][j] = value
         return self.Array
 ________________________________________________________________________________________________________
 2- """A matrix is a collection of scalar values arranged in rows and columns as a rectan-
