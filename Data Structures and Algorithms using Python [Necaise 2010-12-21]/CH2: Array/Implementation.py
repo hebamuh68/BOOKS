@@ -31,16 +31,13 @@ ________________________________________________________________________________
 and columns. Individual elements are referenced by specifying the specific row and
 column indices (r, c), both of which start at 0."""
 
-
-from numpy import *
-
-
 class Array_2D:
 
     def Array(self, rows, cols):
         self.rows = rows
         self.cols = cols
-        self.Array = array([["None"] * self.cols] * self.rows)
+        self.Array= [[0 for i in range(cols)] for j in range(rows)]
+
         return self.Array
 
     def numRows(self):
@@ -55,6 +52,8 @@ class Array_2D:
     def SetItem(self, i, j, value):
         self.Array[i][j] = value
         return self.Array
+
+
 ________________________________________________________________________________________________________
 2- """A matrix is a collection of scalar values arranged in rows and columns as a rectan-
 gular grid of a fixed size. The elements of the matrix can be accessed by specifying
