@@ -30,35 +30,6 @@ ________________________________________________________________________________
 1- """A two-dimensional array consists of a collection of elements organized into rows
 and columns. Individual elements are referenced by specifying the specific row and
 column indices (r, c), both of which start at 0."""
-
-class Array_2D:
-
-    def Array(self, rows, cols):
-        self.rows = rows
-        self.cols = cols
-        self.Array= [[0 for i in range(cols)] for j in range(rows)]
-
-        return self.Array
-
-    def numRows(self):
-        return self.rows
-
-    def numCols(self):
-        return self.cols
-
-    def GetItem(self, i, j):
-        return self.Array[i][j]
-
-    def SetItem(self, i, j, value):
-        self.Array[i][j] = value
-        return self.Array
-
-
-________________________________________________________________________________________________________
-2- """A matrix is a collection of scalar values arranged in rows and columns as a rectan-
-gular grid of a fixed size. The elements of the matrix can be accessed by specifying
-a given row and column index with indices starting at 0."""
-
 class Matrix_ADT:
 
     def Matrix(self, rows, cols):
@@ -93,8 +64,39 @@ class Matrix_ADT:
 
         return self.Matrix
 
-
     def transpose(self):
         self.MatrixT = zip(*self.Matrix)
         for row in self.MatrixT:
             print(row)
+
+    def rhsMatrix(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
+        self.othMatrix = [[5 for i in range(cols)] for j in range(rows)]
+        return self.othMatrix
+
+    def add(self):
+
+        resMatrix = [[0 for i in range(self.cols)] for j in range(self.rows)]
+        for i in range(len(self.Matrix)):
+            for j in range(len(self.Matrix[0])):
+                resMatrix[i][j] = self.Matrix[i][j] + self.othMatrix[i][j]
+        return resMatrix
+
+
+    def subtract(self):
+
+        resMatrix = [[0 for i in range(self.cols)] for j in range(self.rows)]
+        for i in range(len(self.Matrix)):
+            for j in range(len(self.Matrix[0])):
+                resMatrix[i][j] = self.Matrix[i][j] - self.othMatrix[i][j]
+        return resMatrix
+
+    def miltible(self):
+
+        resMatrix = [[0 for i in range(self.cols)] for j in range(self.rows)]
+        for i in range(len(self.Matrix)):
+            for j in range(len(self.Matrix[0])):
+                resMatrix[i][j] = self.Matrix[i][j] * self.othMatrix[i][j]
+        return resMatrix
+
