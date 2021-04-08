@@ -59,15 +59,13 @@ ________________________________________________________________________________
 gular grid of a fixed size. The elements of the matrix can be accessed by specifying
 a given row and column index with indices starting at 0."""
 
-
-from numpy import *
-
 class Matrix_ADT:
 
-    def __init__(self):
-        self.rows = int(input("PLease enter ur rows number: "))
-        self.cols = int(input("PLease enter ur cols number: "))
-        self.Matrix = array([[0] * self.cols] * self.rows)
+    def Matrix(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
+        self.Matrix = [[7 for i in range(cols)] for j in range(rows)]
+        return self.Matrix
 
     def numRows(self):
         return self.rows
@@ -75,34 +73,28 @@ class Matrix_ADT:
     def numCols(self):
         return self.cols
 
-    def getItem(self, item):
-        self.x, self.y = map(int, input("please enter the position of your value (x,y): ").split())
+    def getItem(self, x, y):
+        self.x = x
+        self.y = y
         return self.Matrix[self.x][self.y]
 
-    def setItem(self, key, value):
-        self.x, self.y, self.value = map(int, input("please enter the position of your value (x,y): ").split())
-        self.Matrix[self.x][self.y] = self.value
+    def setItem(self, i, j, value):
+        self.i = i
+        self.j = j
+        self.value = value
+        self.Matrix[self.i][self.j] = self.value
         return self.Matrix
 
-    def scaleBy(self):
-        self.scalar = int(input("Please input the scalar: "))
-        return self.Matrix* self.scalar
+    def scaleBy(self, scalar):
+        self.scalar = scalar
+        for i in range(self.rows):
+            for j in range(self.cols):
+                self.Matrix[i][j] *= scalar
+
+        return self.Matrix
+
 
     def transpose(self):
-        return self.Matrix.transpose()
-
-    def add(self):
-        self.rows = int(input("PLease enter ur rows number: "))
-        self.cols = int(input("PLease enter ur cols number: "))
-        self.rhsMatrix = array([[0] * self.cols] * self.rows)
-
-        return self.Matrix+self.rhsMatrix
-
-    def subtract(self):
-        return self.Matrix - self.rhsMatrix
-
-    def multiply(self):
-        return self.Matrix * self.rhsMatrix
-
-
-
+        self.MatrixT = zip(*self.Matrix)
+        for row in self.MatrixT:
+            print(row)
