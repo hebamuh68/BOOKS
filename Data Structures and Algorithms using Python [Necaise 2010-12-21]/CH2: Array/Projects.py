@@ -9,14 +9,14 @@ original. The operations that can be performed on the ADT are described
 below. Assume the size of the underlying array never decreases."""
 
 class Vector_ADT:
-    def __init__(self):
-        self.vector = list(map(int, input("please enter the numbers of "
-                                          "the list separated be a space: ").split()))
+    def __init__(self, size):
+        self.size = size
+        self.vector = [None] * self.size
 
     def Display(self):
         print(self.vector)
 
-    def Length(self):
+    def __len__(self):
         return len(self.vector)
 
     def contains(self):
@@ -27,38 +27,40 @@ class Vector_ADT:
         else:
             print("The item not found")
 
-    def getItem(self):
-        self.ndxDis = int(input("Please enter the index of the item you want: "))
-        return self.vector[self.ndxDis]
+    def __getitem__(self, index):
+        self.index = index
+        return self.vector[self.index]
 
-    def setItem(self):
-        self.item_to_insert, self.ndx = int(input("Please enter the item, "
-                                                  "and its index separated by a space: "))
+    def __setitem__(self, key, value):
+        self.key = key
+        self.value = value
+        self.vector.insert(self.key, self.value)
 
-        return self.vector.insert(self.ndx, self.item_to_insert)
+    def Append(self, item):
+        self.item = item
+        return self.vector.append(self.item)
 
-    def Append(self):
-        self.item_to_append = int(input("Please enter the index of the item you want: "))
-        return self.vector.append(self.item_to_append)
+    def Remove(self, item):
+        self.item = item
+        return self.vector.remove(self.item)
 
-    def Remove(self):
-        self.item_to_remove = int(input("Please enter the index of the item you want: "))
-        return self.vector.remove(self.item_to_remove)
+    def indexOf(self, item):
+        self.item = item
+        return self.vector.index(self.item)
 
-    def indexOf(self):
-        self.item_to_disIndex = int(input("Please enter the index of the item you want: "))
-        return self.vector.index(self.item_to_disIndex)
+    def othervec(self, size):
+        self.size = size
+        self.othervec = [None] * self.size
+        self.__setitem__()
+        self.__getitem__()
 
     def extend(self):
-        self.otherVector = list(map(int, input("please enter the numbers of "
-                                               "the list separated be a space: ").split()))
-
-        self.NewVector = self.vector + self.otherVector
+        self.NewVector = self.vector + self.otherVec
         return self.NewVector
 
-    def subVector(self):
-        self.From, self.To = map(int, input("please enter ( from , to)"
-                                            " separated by a space: ").split())
+    def subVector(self, From, To):
+        self.From = From
+        self.To = To
         self.SubVector = self.vector[self.From: self.To + 1]
         return self.SubVector
 
